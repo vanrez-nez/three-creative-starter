@@ -56,18 +56,20 @@ export default class ThreeApp {
     this.clock = new THREE.Clock();
 
     // Sky Dome
-    this.skyDome = new SkyDome({
-      radius: CAMERA_FAR / 3,
-      detail: 1,
-      intensity: 1.2,
-      // colorFrom: 0x5c4070,
-      // colorFrom: 0xfffce5, // greenish
-      colorFrom: 0xffffff, // bluish
-      // colorFrom: 0xe6a8a1, // redish
-      colorTo: 0x6a6a84,
-      hemisphereLight: true,
-    });
-    this.scene.add(this.skyDome.group);
+    if (skyDome) {
+      this.skyDome = new SkyDome({
+        radius: CAMERA_FAR / 3,
+        detail: 1,
+        intensity: 1.2,
+        // colorFrom: 0x5c4070,
+        // colorFrom: 0xfffce5, // greenish
+        colorFrom: 0xffffff, // bluish
+        // colorFrom: 0xe6a8a1, // redish
+        colorTo: 0x6a6a84,
+        hemisphereLight: true,
+      });
+      this.scene.add(this.skyDome.group);
+    }
 
     // Optional Components
     if (orbitControls) {
